@@ -5,21 +5,20 @@
 /*===================================================================================================================*/
 
 * {
-	color: #009900;
-	font-family: consolas;
+	color: #ffffff;
+	font-family: garamond;
 	font-size: 25px;
 }
 
 a {
-	color: #000099;
 	text-decoration: none;
 }
 
 body {
-	background-color: #111111;
+	background-color: #303841;
 /* 	user-select: none; */
 }
-.body-table-de-jeu {background-color: #009900;}
+.body-table-de-jeu {background-color: #006000;}
 
 button {cursor: pointer;}
 
@@ -34,8 +33,6 @@ canvas {
 }
 
 div {aspect-ratio: 1}
-
-h1 {color: #990000;}
 
 iframe {
 	width: 25%;
