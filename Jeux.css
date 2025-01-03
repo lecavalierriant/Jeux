@@ -4,17 +4,19 @@
 /*                                                                                                                   */
 /*===================================================================================================================*/
 
+* {
+	color: #009900;
+	font-family: consolas;
+	font-size: 50px;
+}
+
 a {
-/* 	font-size: 1000%; */
+	color: #000099;
 	text-decoration: none;
-	color: #8eac50;
 }
 
 body {
 	text-align: center;
-	color: #8eac50;
-	font-size: 125%;
-	font-family: georgia;
 	user-select: none;
 }
 
@@ -22,9 +24,7 @@ button {cursor: pointer;}
 
 button,
 input {
-	color: #8eac50;
-	font-family: georgia;
-	font-size: 150%;
+	color: #000099;
 }
 
 canvas {
@@ -34,7 +34,7 @@ canvas {
 
 div {aspect-ratio: 1}
 
-h1 {color: #213363;}
+h1 {color: #990000;}
 
 iframe {
 	width: 25%;
@@ -43,9 +43,7 @@ iframe {
 }
 
 p,
-pre {font-size: 200%}
-
-pre {font-family: monospace;}
+pre {font-size: 75px}
 
 /*===================================================================================================================*/
 /*                                                                                                                   */
