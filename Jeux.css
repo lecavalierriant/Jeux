@@ -4,6 +4,11 @@
 /*                                                                                                                   */
 /*===================================================================================================================*/
 
+a {
+/* 	font-size: 1000%; */
+	text-decoration: none;
+	color: #8eac50;
+}
 
 body {
 	text-align: center;
@@ -13,30 +18,13 @@ body {
 	user-select: none;
 }
 
-a {
-/*	font-size: 1000%;*/
-	text-decoration: none;
-	color: #8eac50;
-}
+button {cursor: pointer;}
 
-h1 {color: #213363;}
-p, pre {font-size: 200%}
-
-pre {font-family: monospace;}
-
-
-button, input {
+button,
+input {
 	color: #8eac50;
 	font-family: georgia;
 	font-size: 150%;
-}
-
-button {cursor: pointer;}
-
-iframe {
-	width: 25%;
-	aspect-ratio: 3 / 2;
-	border: 3px solid #213363;
 }
 
 canvas {
@@ -46,56 +34,18 @@ canvas {
 
 div {aspect-ratio: 1}
 
-/*===================================================================================================================*/
-/*	memoire.html*/
-/*===================================================================================================================*/
+h1 {color: #213363;}
 
-.card {
-	width: 10%;
-	background-color: #17594A;
-	border-radius: 12.5%;
-	display: inline-block;
-	margin: 1%;
-	cursor: pointer;
+iframe {
+	width: 25%;
+	aspect-ratio: 3 / 2;
+	border: 3px solid #213363;
 }
 
-.card:hover {
-	width: 11%;
-	margin: 0.5%;
-}
+p,
+pre {font-size: 200%}
 
-.card[data-value = A].flip {background-color: #ff0000;}
-.card[data-value = B].flip {background-color: #00ff00;}
-.card[data-value = C].flip {background-color: #0000ff;}
-.card[data-value = D].flip {background-color: #ffff00;}
-.card[data-value = E].flip {background-color: #ff00ff;}
-.card[data-value = F].flip {background-color: #00ffff;}
-.card[data-value = G].flip {background-color: #ff8000;}
-.card[data-value = H].flip {background-color: #008000;}
-
-/*===================================================================================================================*/
-/*	tir.html*/
-/*===================================================================================================================*/
-
-.target {
-	width: 5%;
-	background-color: #213363;
-	border-radius: 50%;
-	position: absolute;
-	cursor: pointer;
-	animation: moveTarget 5s linear infinite;
-}
-
-.hit {background-color: #8eac50;}
-
-@keyframes moveTarget {
-	0% {top: 10%; left: 10%;}
-	25% {top: 90%; left: 10%;}
-	50% {top: 90%; left: 90%;}
-	75% {top: 10%; left: 90%;}
-	100% {top: 10%; left: 10%;}
-}
-
+pre {font-family: monospace;}
 
 /*===================================================================================================================*/
 /*                                                                                                                   */
