@@ -15,6 +15,8 @@ paquet = [];
 // nombre de joueurs * 2 => premières cartes
 // reste (partant de max)
 
+function initialiser() {nouveauPaquet();}
+
 class Carte {
 
 	constructor(force, famille) {
