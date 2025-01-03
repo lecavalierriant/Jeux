@@ -9,8 +9,6 @@ body {
 	text-align: center;
 }
 
-table {margin: auto;}
-
 td {
 	cursor: pointer;
 	text-shadow: 1px 1px 0px #ffffff;
