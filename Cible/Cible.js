@@ -1,8 +1,8 @@
-// ================================================================================================================= //
-//                                                                                                                   //
-//                                                        Jeux                                                       //
-//                                                                                                                   //
-// ================================================================================================================= //
+/* ================================================================================================================= */
+/*                                                                                                                   */
+/*                                                       Cible                                                       */
+/*                                                                                                                   */
+/* ================================================================================================================= */
 
 points = 0;
 coefficient = 1;
@@ -12,47 +12,38 @@ droite = false;
 gauche = false;
 
 function touchePressee(evenement) {
-
 	if (evenement.key === "ArrowRight") {
 		droite = true;
 	} else if (evenement.key === "ArrowLeft") {
 		gauche = true;
 	}
-
 }
 
 function toucheLiberee(evenement) {
-
 	if (evenement.key === "ArrowRight") {
 		droite = false;
 	} else if (evenement.key === "ArrowLeft") {
 		gauche = false;
 	}
-
 }
 
 function afficherJoueur() {
-
 	contexte.beginPath();
 	contexte.rect(joueur.x, joueur.y, joueur.width, joueur.height);
 	contexte.fillStyle = joueur.color;
 	contexte.fill();
 	contexte.closePath();
-
 }
 
 function dessinerCible() {
-
 	contexte.beginPath();
 	contexte.rect(cible.x, cible.y, cible.width, cible.height);
 	contexte.fillStyle = cible.color;
 	contexte.fill();
 	contexte.closePath();
-
 }
 
 function detecterCollisions() {
-
 	if (
 		joueur.x < cible.x + cible.width &&
 		joueur.x + joueur.width > cible.x &&
@@ -65,19 +56,15 @@ function detecterCollisions() {
 		cible.speed += 0.2 * coefficient;
 		coefficient = coefficient / 1.1;
 	}
-
 }
 
 function dessinerPoints() {
-
 	contexte.font = "100% georgia";
 	contexte.fillStyle = "#333333";
 	contexte.fillText("Score : " + points, 10, 20);
-
 }
 
 function rafraichir() {
-
 	contexte.clearRect(0, 0, canvas.width, canvas.height);
 	if (droite && joueur.x < canvas.width - joueur.width) {
 		joueur.x += 5;
@@ -90,13 +77,10 @@ function rafraichir() {
 	detecterCollisions();
 	dessinerPoints();
 	requestAnimationFrame(rafraichir);
-	
 }
 
 function initialisation() {
-
 	contexte = canvas.getContext("2d");
-
 	joueur = {
 		x: canvas.width / 2,
 		y: canvas.height - 30,
@@ -104,7 +88,6 @@ function initialisation() {
 		height: 20,
 		color: "#213363"
 	};
-
 	cible = {
 		x: canvas.width / 2,
 		y: 0,
@@ -114,12 +97,10 @@ function initialisation() {
 		speed: 2
 	};
 	rafraichir();
-
 }
 
-
-// ================================================================================================================= //
-//                                                                                                                   //
-//                                                        Jeux                                                       //
-//                                                                                                                   //
-// ================================================================================================================= //
+/* ================================================================================================================= */
+/*                                                                                                                   */
+/*                                                       Cible                                                       */
+/*                                                                                                                   */
+/* ================================================================================================================= */
