@@ -41,6 +41,7 @@ iframe {
 }
 
 .table-plateau-de-jeu {
+	background-color: #582900;
 	border: 5px #582900 solid;
 	margin: auto;
 }
