@@ -43,7 +43,10 @@ iframe {
 	border: 3px solid #213363;
 }
 
-.table-plateau-de-jeu {border: 5px #582900 solid;}
+.table-plateau-de-jeu {
+	border: 5px #582900 solid;
+	margin: auto;
+}
 
 /*===================================================================================================================*/
 /*                                                                                                                   */
