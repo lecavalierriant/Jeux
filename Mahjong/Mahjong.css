@@ -4,21 +4,21 @@
 /*                                                                                                                   */
 /*===================================================================================================================*/
 
-
 a {
 	cursor: pointer;
 	transition: 0.2s;
 }
-a:hover {
-	margin-left: 5%;
-}
-.a-fleurs, .a-saisons, .a-combinaisons, .a-remplacement {
-	cursor: not-allowed;
-}
-.a-sélectionnées {
-	background-color: #ffff00;
-}
-.tr-vertical .a-mur, #div-haut-droite a, #a-haut-droite, #div-bas-gauche a, #a-bas-gauche {
+a:hover {margin-left: 5%;}
+.a-fleurs,
+.a-saisons,
+.a-combinaisons,
+.a-remplacement {cursor: not-allowed;}
+.a-sélectionnées {background-color: #ffff00;}
+.tr-vertical .a-mur,
+#div-haut-droite a,
+#a-haut-droite,
+#div-bas-gauche a,
+#a-bas-gauche {
 	writing-mode: vertical-rl;
 	transform: rotate(-90deg);
 	margin-bottom: -15px;
@@ -27,7 +27,6 @@ a:hover {
 
 body {
 	text-align: center;
-	background-color: #008000;
 	color: #ffffff;
 	text-shadow: 2px 2px 1px #000000;
 	font-size: 150%;
@@ -129,7 +128,6 @@ text {
 line {
 	stroke-width: 1px;
 }
-
 
 /*===================================================================================================================*/
 /*                                                                                                                   */
