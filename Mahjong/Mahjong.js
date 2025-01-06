@@ -7,15 +7,38 @@
 
 vents = ["🀃", "🀁", "🀀", "🀂"];
 ventsTexte = ["du Nord", "du Sud", "d'Est", "d'Ouest"];
+// vents = {
+// 	"🀃": "du Nord",
+// 	"🀁": "du Sud",
+// 	"🀀": "d'Est",
+// 	"🀂": "d'Ouest"
+// }
 dragons = ["🀄", "🀅", "🀆"];
 dragonsTexte = ["rouge", "vert", "blanc"];
-caractere = ["🀇", "🀈", "🀉", "🀊", "🀋", "🀌", "🀍", "🀎", "🀏"];
+// dragons = {
+// 	"🀄": "rouge",
+// 	"🀅": "vert",
+// 	"🀆": "blanc"
+// }
+caractères = ["🀇", "🀈", "🀉", "🀊", "🀋", "🀌", "🀍", "🀎", "🀏"];
 bambous = ["🀐", "🀑", "🀒", "🀓", "🀔", "🀕", "🀖", "🀗", "🀘"];
 ronds = ["🀙", "🀚", "🀛", "🀜", "🀝", "🀞", "🀟", "🀠", "🀡"];
 fleurs = ["🀢", "🀣", "🀤", "🀥"];
 fleursTexte = ["Fleur de prunier", "Orchidée", "Fleur de bambou", "Chrysanthème"];
+// fleurs = {
+// 	"🀢": "Fleur de prunier",
+// 	"🀣": "Orchidée",
+// 	"🀤": "Fleur de bambou",
+// 	"🀥": "Chrysanthème"
+// }
 saisons = ["🀦", "🀧", "🀨", "🀩"];
 saisonsTexte = ["Printemps", "Été", "Automne", "Hiver"];
+// saisons = {
+// 	"🀦": "Printemps",
+// 	"🀧": "Été",
+// 	"🀨": "Automne",
+// 	"🀩": "Hiver"
+// }
 paquet = [];
 paquetCentre = [];
 compteCracher = 0;
@@ -35,51 +58,28 @@ annonce = "";
 combinaisons = 0;
 
 class Tuile {
-
 	constructor(force, famille) {
-
 		this.force = force;
 		this.famille = famille;
-		if (this.famille == "vents") {
-			this.unicode = vents[this.force - 1];
-		} else if (this.famille == "dragons") {
-			this.unicode = dragons[this.force - 1];
-		} else if (this.famille == "caractères") {
-			this.unicode = caractere[this.force - 1];
-		} else if (this.famille == "bambous") {
-			this.unicode = bambous[this.force - 1];
-		} else if (this.famille == "ronds") {
-			this.unicode = ronds[this.force - 1];
-		} else if (this.famille == "fleurs") {
-			this.unicode = fleurs[this.force - 1];
-		} else if (this.famille == "saisons") {
-			this.unicode = saisons[this.force - 1];
-		}
-
+		if (this.famille == "vents") {this.unicode = vents[this.force - 1];} else
+		if (this.famille == "dragons") {this.unicode = dragons[this.force - 1];} else
+		if (this.famille == "caractères") {this.unicode = caractères[this.force - 1];} else
+		if (this.famille == "bambous") {this.unicode = bambous[this.force - 1];} else
+		if (this.famille == "ronds") {this.unicode = ronds[this.force - 1];} else
+		if (this.famille == "fleurs") {this.unicode = fleurs[this.force - 1];} else
+		if (this.famille == "saisons") {this.unicode = saisons[this.force - 1];}
 	}
-
 	nom() {
-
-		if (this.famille == "vents") {
-			return "Vent " + ventsTexte[this.force - 1];
-		} else if (this.famille == "dragons") {
-			return "Dragon " + dragonsTexte[this.force - 1];
-		} else if (this.famille == "fleurs") {
-			return fleursTexte[this.force - 1];
-		} else if (this.famille == "saisons") {
-			return saisonsTexte[this.force - 1];
-		} else {
-			return this.force + " de " + this.famille;
-		}
-
+		if (this.famille == "vents") {return "Vent " + ventsTexte[this.force - 1];} else
+		if (this.famille == "dragons") {return "Dragon " + dragonsTexte[this.force - 1];} else
+		if (this.famille == "fleurs") {return fleursTexte[this.force - 1];} else
+		if (this.famille == "saisons") {return saisonsTexte[this.force - 1];}
+		else {return this.force + " de " + this.famille;}
 	}
-
 }
 
 class TuileUnicode {
-
 	constructor(unicode) {
-
 		for (var i = vents.length - 1; i >= 0; i--) {
 			if (unicode == vents[i]) {
 				this.famille = "vents";
@@ -94,8 +94,8 @@ class TuileUnicode {
 				return;
 			}
 		}
-		for (var i = caractere.length - 1; i >= 0; i--) {
-			if (unicode == caractere[i]) {
+		for (var i = caractères.length - 1; i >= 0; i--) {
+			if (unicode == caractères[i]) {
 				this.famille = "caractères";
 				this.force = i;
 				return;
@@ -129,20 +129,14 @@ class TuileUnicode {
 				return;
 			}
 		}
-
 	}
-
 	tuile() {
-
 		tuile = new Tuile(this.force, this.famille);
 		return tuile;
-
 	}
-
 }
 
 function nouveauPaquet() {
-
 	paquetOrdre = [];
 	for (var i = 4; i >= 1; i--) {
 		tuile = new Tuile(i, "fleurs");
@@ -180,23 +174,17 @@ function nouveauPaquet() {
 		paquet.push(paquetOrdre[index]);
 		paquetOrdre.splice(index, 1);
 	}
-
 }
 
 function distribution(argument) {
-
 	for (var i = 13 - 1; i >= 0; i--) {
 		document.getElementsByClassName("td-main")[i].innerHTML = "<a ondblclick = cracher(this) class = a-main>" + paquet[i].unicode + "</a>";
 		document.getElementsByClassName("td-main")[i].title = paquet[i].nom();
 	}
-	for (var i = 13 * 4 - 1; i >= 0; i--) {
-		piocherMur(false);
-	}
-
+	for (var i = 13 * 4 - 1; i >= 0; i--) {piocherMur(false);}
 }
 
 function cracher(tuile) {
-
 	tuilesMain = document.getElementsByClassName("a-main");
 	index = Array.prototype.indexOf.call(tuilesMain, tuile);
 	tuileCracher = paquet[index];
@@ -216,28 +204,26 @@ function cracher(tuile) {
 		compteCracher++;
 	}
 	document.getElementsByClassName("a-main")[index].innerHTML = "";
-
 }
 
 function piocherCentre(tuile) {
-
 	tuilesCentre = document.getElementsByClassName("a-centre");
 	index = Array.prototype.indexOf.call(tuilesCentre, tuile);
 	tuilePiocherCentre = paquetCentre[index];
 	document.getElementById("td-pioche-main").innerHTML = "<a id = a-pioche-main>" + tuilePiocherCentre.unicode + "</a>";
 	document.getElementById("a-pioche-main").title = tuilePiocherCentre.nom();
 	document.getElementsByClassName("td-centre")[index].innerHTML = "<a class = a-centre></a>";
-
 }
 
 function piocherMur(afficherPioche) {
-
 	tuilePiocherMur = paquet[144 - 1 - comptePiocherMur];
 	if (comptePiocherMur < 12) {
 		if (comptePiocherMur == 10) {
-			document.getElementsByClassName("td-mur")[Math.floor(compte1PiocherMur / 2)].innerHTML = "<a ondblclick = piocherMur() class = a-mur id = a-bas-gauche>🀫</a>";
+			document.getElementsByClassName("td-mur")[Math.floor(compte1PiocherMur / 2)].innerHTML =
+				"<a ondblclick = piocherMur() class = a-mur id = a-bas-gauche>🀫</a>";
 		} else if (comptePiocherMur % 2 == 0) {
-			document.getElementsByClassName("td-mur")[Math.floor(compte1PiocherMur / 2)].innerHTML = "<a ondblclick = piocherMur() class = a-mur>🀫</a>";
+			document.getElementsByClassName("td-mur")[Math.floor(compte1PiocherMur / 2)].innerHTML =
+				"<a ondblclick = piocherMur() class = a-mur>🀫</a>";
 		} else {
 			document.getElementsByClassName("td-mur")[Math.floor(compte1PiocherMur / 2)].innerHTML = "";
 		}
@@ -245,7 +231,8 @@ function piocherMur(afficherPioche) {
 	} else if (comptePiocherMur < 46) {
 		if (bascule2PiocherMur) {
 			if (compte2PiocherMur % 2 == 1) {
-				document.getElementsByClassName("td-mur")[Math.floor(compte2PiocherMur / 2) - 2].innerHTML = "<a ondblclick = piocherMur() class = a-mur>🀫</a>";
+				document.getElementsByClassName("td-mur")[Math.floor(compte2PiocherMur / 2) - 2].innerHTML =
+					"<a ondblclick = piocherMur() class = a-mur>🀫</a>";
 			} else {
 				document.getElementsByClassName("td-mur")[Math.floor(compte2PiocherMur / 2) - 2].innerHTML = "";
 				compte2PiocherMur--;
@@ -254,7 +241,8 @@ function piocherMur(afficherPioche) {
 			}
 		} else {
 			if (compte2PiocherMur % 2 == 1) {
-				document.getElementsByClassName("td-mur")[Math.floor(compte2PiocherMur / 2)].innerHTML = "<a ondblclick = piocherMur() class = a-mur>🀫</a>";
+				document.getElementsByClassName("td-mur")[Math.floor(compte2PiocherMur / 2)].innerHTML =
+					"<a ondblclick = piocherMur() class = a-mur>🀫</a>";
 			} else {
 				document.getElementsByClassName("td-mur")[Math.floor(compte2PiocherMur / 2)].innerHTML = "";
 				bascule2PiocherMur = true;
@@ -263,9 +251,11 @@ function piocherMur(afficherPioche) {
 		compte2PiocherMur--;
 	} else if (comptePiocherMur < 84) {
 		if (comptePiocherMur == 82) {
-			document.getElementsByClassName("td-mur")[Math.floor(compte3PiocherMur / 2)].innerHTML = "<a ondblclick = piocherMur() class = a-mur id = a-haut-droite>🀫</a>";
+			document.getElementsByClassName("td-mur")[Math.floor(compte3PiocherMur / 2)].innerHTML =
+				"<a ondblclick = piocherMur() class = a-mur id = a-haut-droite>🀫</a>";
 		} else if (comptePiocherMur % 2 == 0) {
-			document.getElementsByClassName("td-mur")[Math.floor(compte3PiocherMur / 2)].innerHTML = "<a ondblclick = piocherMur() class = a-mur>🀫</a>";
+			document.getElementsByClassName("td-mur")[Math.floor(compte3PiocherMur / 2)].innerHTML =
+				"<a ondblclick = piocherMur() class = a-mur>🀫</a>";
 		} else {
 			document.getElementsByClassName("td-mur")[Math.floor(compte3PiocherMur / 2)].innerHTML = "";
 		}
@@ -273,7 +263,8 @@ function piocherMur(afficherPioche) {
 	} else if (comptePiocherMur < 118) {
 		if (bascule4PiocherMur) {
 			if (compte4PiocherMur % 2 == 0) {
-				document.getElementsByClassName("td-mur")[Math.floor(compte4PiocherMur / 2) + 2].innerHTML = "<a ondblclick = piocherMur() class = a-mur>🀫</a>";
+				document.getElementsByClassName("td-mur")[Math.floor(compte4PiocherMur / 2) + 2].innerHTML =
+					"<a ondblclick = piocherMur() class = a-mur>🀫</a>";
 			} else {
 				document.getElementsByClassName("td-mur")[Math.floor(compte4PiocherMur / 2) + 2].innerHTML = "";
 				compte4PiocherMur++;
@@ -282,7 +273,8 @@ function piocherMur(afficherPioche) {
 			}
 		} else {
 			if (compte4PiocherMur % 2 == 1) {
-				document.getElementsByClassName("td-mur")[Math.floor(compte4PiocherMur / 2)].innerHTML = "<a ondblclick = piocherMur() class = a-mur>🀫</a>";
+				document.getElementsByClassName("td-mur")[Math.floor(compte4PiocherMur / 2)].innerHTML =
+					"<a ondblclick = piocherMur() class = a-mur>🀫</a>";
 			} else {
 				document.getElementsByClassName("td-mur")[Math.floor(compte4PiocherMur / 2)].innerHTML = "";
 				bascule4PiocherMur = true;
@@ -291,7 +283,8 @@ function piocherMur(afficherPioche) {
 		compte4PiocherMur++;
 	} else {
 		if (comptePiocherMur % 2 == 0) {
-			document.getElementsByClassName("td-mur")[Math.floor(compte5PiocherMur / 2)].innerHTML = "<a ondblclick = piocherMur() class = a-mur>🀫</a>";
+			document.getElementsByClassName("td-mur")[Math.floor(compte5PiocherMur / 2)].innerHTML =
+				"<a ondblclick = piocherMur() class = a-mur>🀫</a>";
 		} else {
 			document.getElementsByClassName("td-mur")[Math.floor(compte5PiocherMur / 2)].innerHTML = "";
 		}
@@ -302,122 +295,75 @@ function piocherMur(afficherPioche) {
 		document.getElementById("a-pioche-main").title = tuilePiocherMur.nom();
 	}
 	comptePiocherMur++;
-
 }
 
 function joueurSuivant() {
-
 	// enregistrer les changements
 	// passer la main
 	// verrouillage de la tuile crachée au tour précédent
-
 	// tuileCrachee = document.getElementsByClassName("a-centre")[document.getElementsByClassName("a-centre").length].innerHTML;
-
 }
 
 function remplacer() {
-
 	tuileRemplacer = paquet[144 - 1 - compteRemplacer];
 	document.getElementsByClassName("div-très-haut")[compteRemplacer].innerHTML = "";
 	document.getElementById("td-pioche-main").innerHTML = "<a id = a-pioche-main>" + tuileRemplacer.unicode + "</a>";
 	document.getElementById("a-pioche-main").title = tuileRemplacer.nom();
 	compteRemplacer--;
-
 }
 
 function chow() {
-
 	annonce = "Chow";
 	verouillageBoutons();
-
 }
 
 function estChow(tuile1, tuile2, tuile3) {
-
 	if (tuile1.famille == tuile2.famille && tuile1.famille == tuile3.famille) {
-		if (tuile1.force - tuile2.force == 1 && tuile2.force - tuile3.force == 1) {
-			return true;
-		}
-		if (tuile1.force - tuile2.force == -1 && tuile2.force - tuile3.force == -1) {
-			return true;
-		}
-		if (tuile1.force - tuile3.force == 1 && tuile2.force - tuile1.force == 1) {
-			return true;
-		}
-		if (tuile1.force - tuile3.force == -1 && tuile2.force - tuile1.force == -1) {
-			return true;
-		}
+		if (tuile1.force - tuile2.force == 1 && tuile2.force - tuile3.force == 1) {return true;}
+		if (tuile1.force - tuile2.force == -1 && tuile2.force - tuile3.force == -1) {return true;}
+		if (tuile1.force - tuile3.force == 1 && tuile2.force - tuile1.force == 1) {return true;}
+		if (tuile1.force - tuile3.force == -1 && tuile2.force - tuile1.force == -1) {return true;}
 	}
 	return false;
-
 }
 
 function pung(interne) {
-
-	if (interne) {
-		annonce = "Pung interne";
-	} else {
-		annonce = "Pung";
-	}
+	if (interne) {annonce = "Pung interne";} else {annonce = "Pung";}
 	verouillageBoutons();
-
 }
 
 function estPung(tuile1, tuile2, tuile3) {
-
-	if (tuile1.unicode == tuile2.unicode && tuile1.unicode == tuile3.unicode) {
-		return true;
-	}
+	if (tuile1.unicode == tuile2.unicode && tuile1.unicode == tuile3.unicode) {return true;}
 	return false;
-
 }
 
 function kong(interne) {
-
-	if (interne) {
-		annonce = "Kong interne";
-	} else {
-		annonce = "Kong";
-	}
+	if (interne) {annonce = "Kong interne";} else {annonce = "Kong";}
 	verouillageBoutons();
-
 }
 
 function estKong(tuile1, tuile2, tuile3, tuile4) {}
 
 function mahjong() {
-
 	annonce = "Mahjong";
 	verouillageBoutons();
-	if (combinaisons == 4) {
-	} else {
-		alert("Il vous reste " + (4 - combinaisons) + " combinaisons à faire.");
-	}
-
+	if (combinaisons == 4) {} else {alert("Il vous reste " + (4 - combinaisons) + " combinaisons à faire.");}
 }
 
 function paire() {
-
 	annonce = "Paire";
 	verouillageBoutons();
-
 }
 
 function estPaire(tuile1, tuile2) {
-
-	if (tuile1.unicode == tuile2.unicode) {
-		return true;
-	}
+	if (tuile1.unicode == tuile2.unicode) {return true;}
 	return false;
-
 }
 
 function valider() {
-
 	tuilesSelectionnees = document.getElementsByClassName("a-sélectionnées");
-	if (tuilesSelectionnees.length == 0) {
-		alert("Veuillez sélectionner des tuiles.");
-	} else {
+	if (tuilesSelectionnees.length == 0) {alert("Veuillez sélectionner des tuiles.");}
+	else {
 		tuiles = [];
 		for (var i = tuilesSelectionnees.length - 1; i >= 0; i--) {
 			tuileUnicode = new TuileUnicode(tuilesSelectionnees[i].innerText);
@@ -427,110 +373,64 @@ function valider() {
 			if (estChow(tuiles[0], tuiles[1], tuiles[2])) {
 				combinaisons++;
 				alert("Bravo, un chow !");
-			} else {
-				alert("Désolé, vous n'avez pas un chow.");
-			}
+			} else {alert("Désolé, vous n'avez pas un chow.");}
 		} else if (annonce == "Pung") {
 			if (estPung(tuiles[0], tuiles[1], tuiles[2])) {
 				combinaisons++;
 				alert("Bravo, un pung !");
-			} else {
-				alert("Désolé, vous n'avez pas un pung.");
-			}
+			} else {alert("Désolé, vous n'avez pas un pung.");}
 		} else if (annonce == "Pung interne") {
 			if (estPung(tuiles[0], tuiles[1], tuiles[2])) {
 				combinaisons++;
 				alert("Bravo, un pung interne !");
-			} else {
-				alert("Désolé, vous n'avez pas un pung interne.");
-			}
+			} else {alert("Désolé, vous n'avez pas un pung interne.");}
 		} else if (annonce == "Kong") {
 			if (estKong(tuiles[0], tuiles[1], tuiles[2], tuiles[3])) {
 				combinaisons++;
-				alert("Bravo, un kong !"); 
-			} else {
-				alert("Désolé, vous n'avez pas un kong.");
-			}
+				alert("Bravo, un kong !");
+			} else {alert("Désolé, vous n'avez pas un kong.");}
 		} else if (annonce == "Kong interne") {
 			if (estKong(tuiles[0], tuiles[1], tuiles[2], tuiles[3])) {
 				combinaisons++;
-				alert("Bravo, un kong interne !"); 
-			} else {
-				alert("Désolé, vous n'avez pas un kong interne.");
-			}
+				alert("Bravo, un kong interne !");
+			} else {alert("Désolé, vous n'avez pas un kong interne.");}
 		} else if (annonce == "Mahjong") {
 			if (estMahjong(tuiles[0], tuiles[1])) {
 				combinaisons++;
-				alert("Bravo, un Mahjong !"); 
-			} else {
-				alert("Désolé, vous n'avez pas un Mahjong");
-			}
+				alert("Bravo, un Mahjong !");
+			} else {alert("Désolé, vous n'avez pas un Mahjong");}
 		} else if (annonce == "Paire") {
 			if (estPaire(tuiles[0], tuiles[1])) {
 				combinaisons++;
-				alert("Bravo, une paire !"); 
-			} else {
-				alert("Désolé, vous n'avez pas une paire");
-			}
+				alert("Bravo, une paire !");
+			} else {alert("Désolé, vous n'avez pas une paire");}
 		}
 	}
-
 }
 
 function verouillageBoutons() {
-
 	if (basculeVerouillageBoutons) {
-		if (annonce != "Chow") {
-			document.getElementsByClassName("button-annonces")[0].style.opacity = 0.5;
-		}
-		if (annonce != "Pung") {
-			document.getElementsByClassName("button-annonces")[1].style.opacity = 0.5;
-		}
-		if (annonce != "Pung interne") {
-			document.getElementsByClassName("button-annonces")[2].style.opacity = 0.5;
-		}
-		if (annonce != "Kong") {
-			document.getElementsByClassName("button-annonces")[3].style.opacity = 0.5;
-		}
-		if (annonce != "Kong interne") {
-			document.getElementsByClassName("button-annonces")[4].style.opacity = 0.5;
-		}
-		if (annonce != "Mahjong") {
-			document.getElementsByClassName("button-annonces")[5].style.opacity = 0.5;
-		}
-		if (annonce != "Paire") {
-			document.getElementsByClassName("button-annonces")[6].style.opacity = 0.5;
-		}
+		if (annonce != "Chow") {document.getElementsByClassName("button-annonces")[0].style.opacity = 0.5;}
+		if (annonce != "Pung") {document.getElementsByClassName("button-annonces")[1].style.opacity = 0.5;}
+		if (annonce != "Pung interne") {document.getElementsByClassName("button-annonces")[2].style.opacity = 0.5;}
+		if (annonce != "Kong") {document.getElementsByClassName("button-annonces")[3].style.opacity = 0.5;}
+		if (annonce != "Kong interne") {document.getElementsByClassName("button-annonces")[4].style.opacity = 0.5;}
+		if (annonce != "Mahjong") {document.getElementsByClassName("button-annonces")[5].style.opacity = 0.5;}
+		if (annonce != "Paire") {document.getElementsByClassName("button-annonces")[6].style.opacity = 0.5;}
 		basculeVerouillageBoutons = false;
 	} else {
-		if (annonce != "Chow") {
-			document.getElementsByClassName("button-annonces")[0].style.opacity = 1;
-		}
-		if (annonce != "Pung") {
-			document.getElementsByClassName("button-annonces")[1].style.opacity = 1;
-		}
-		if (annonce != "Pung interne") {
-			document.getElementsByClassName("button-annonces")[2].style.opacity = 1;
-		}
-		if (annonce != "Kong") {
-			document.getElementsByClassName("button-annonces")[3].style.opacity = 1;
-		}
-		if (annonce != "Kong interne") {
-			document.getElementsByClassName("button-annonces")[4].style.opacity = 1;
-		}
-		if (annonce != "Mahjong") {
-			document.getElementsByClassName("button-annonces")[5].style.opacity = 1;
-		}
-		if (annonce != "Paire") {
-			document.getElementsByClassName("button-annonces")[6].style.opacity = 1;
-		}
+		if (annonce != "Chow") {document.getElementsByClassName("button-annonces")[0].style.opacity = 1;}
+		if (annonce != "Pung") {document.getElementsByClassName("button-annonces")[1].style.opacity = 1;}
+		if (annonce != "Pung interne") {document.getElementsByClassName("button-annonces")[2].style.opacity = 1;}
+		if (annonce != "Kong") {document.getElementsByClassName("button-annonces")[3].style.opacity = 1;}
+		if (annonce != "Kong interne") {document.getElementsByClassName("button-annonces")[4].style.opacity = 1;}
+		if (annonce != "Mahjong") {document.getElementsByClassName("button-annonces")[5].style.opacity = 1;}
+		if (annonce != "Paire") {document.getElementsByClassName("button-annonces")[6].style.opacity = 1;}
 		basculeVerouillageBoutons = true;
 	}
-
 }
 
 function sélectionner() {
-
 	if (basculesélectionner) {
 		document.getElementById("button-sélectionner").style.opacity = 0.5;
 		basculesélectionner = false;
@@ -542,25 +442,17 @@ function sélectionner() {
 	piocheMain = document.getElementById("a-pioche-main");
 	dernierCrache = document.getElementById("a-crachee");
 	tuilesArray = Array.from(tuilesMain);
-	if (piocheMain != null) {
-		tuilesArray.push(piocheMain);
-	}
-	if (dernierCrache != null) {
-		tuilesArray.push(dernierCrache);
-	}
+	if (piocheMain != null) {tuilesArray.push(piocheMain);}
+	if (dernierCrache != null) {tuilesArray.push(dernierCrache);}
 	tuilesArray.forEach(
 		(tuile) => {
 			tuile.addEventListener(
 				"click",
-				() => {
-					tuile.classList.toggle("a-sélectionnées");
-				}
+				() => {tuile.classList.toggle("a-sélectionnées");}
 			);
 		}
 	);
-
 }
-
 
 // ================================================================================================================= //
 //                                                                                                                   //
