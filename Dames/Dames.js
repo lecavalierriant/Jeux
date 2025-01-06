@@ -4,9 +4,7 @@
 //                                                                                                                   //
 // ================================================================================================================= //
 
-function selectionner(cellule) {
-	console.log(cellule.classList);
-
+function sélectionner(cellule) {
 	if (cellule.style.backgroundColor = "#ff00ff") {
 		if (cellule.classList[0] == "td-blanc") {
 			cellule.style.backgroundColor = "red";
@@ -25,7 +23,6 @@ function selectionner(cellule) {
 	// 		squareAbove.classList.toggle('yellow');
 	// 	}
 	// }
-
 }
 
 // ================================================================================================================= //
