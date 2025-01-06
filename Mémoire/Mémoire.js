@@ -4,7 +4,7 @@
 //                                                                                                                   //
 // ================================================================================================================= //
 
-cards = [
+cartes = [
 	{id: 1, value: "A", flipped: false},
 	{id: 2, value: "B", flipped: false},
 	{id: 3, value: "A", flipped: false},
@@ -22,30 +22,30 @@ cards = [
 	{id: 15, value: "G", flipped: false},
 	{id: 16, value: "H", flipped: false}
 ];
-cards.sort(() => Math.random() - 0.5);
-pairsFound = 0;
+cartes.sort(() => Math.random() - 0.5);
+points = 0;
 
-function flipCard(card) {
-	if (card.flipped) {return;}
-	card.flipped = true;
-	card.element.classList.add("flip");
-	flippedCards = cards.filter(c => c.flipped && !c.matched);
-	if (flippedCards.length === 2) {
-		[card1, card2] = flippedCards;
-		if (card1.value === card2.value) {
-			card1.matched = true;
-			card2.matched = true;
-			pairsFound++;
-			if (pairsFound === cards.length / 2) {
+function retourner(carte) {
+	if (carte.flipped) {return;}
+	carte.flipped = true;
+	carte.element.classList.add("flip");
+	cartesRetournées = cartes.filter(c => c.flipped && !c.matched);
+	if (cartesRetournées.length === 2) {
+		[carte1, carte2] = cartesRetournées;
+		if (carte1.value === carte2.value) {
+			carte1.matched = true;
+			carte2.matched = true;
+			points++;
+			if (points === cartes.length / 2) {
 				setTimeout(function() {alert("Félicitations, vous avez gagné !");}, 500);
 			}
 		} else {
 			setTimeout(
 				function() {
-					card1.flipped = false;
-					card2.flipped = false;
-					card1.element.classList.remove("flip");
-					card2.element.classList.remove("flip");
+					carte1.flipped = false;
+					carte2.flipped = false;
+					carte1.element.classList.remove("flip");
+					carte2.element.classList.remove("flip");
 				},
 				1000
 			);
@@ -55,13 +55,13 @@ function flipCard(card) {
 
 function initialiser() {
 	gameBoard = document.getElementById("gameBoard");
-	cards.forEach(
-		function(card) {
+	cartes.forEach(
+		function(carte) {
 			cardElement = document.createElement("div");
-			cardElement.className = "card";
-			cardElement.setAttribute("data-value", card.value);
-			card.element = cardElement;
-			cardElement.addEventListener("click", function() {flipCard(card);});
+			cardElement.className = "carte";
+			cardElement.setAttribute("data-value", carte.value);
+			carte.element = cardElement;
+			cardElement.addEventListener("click", function() {retourner(carte);});
 			gameBoard.appendChild(cardElement);
 		}
 	);
