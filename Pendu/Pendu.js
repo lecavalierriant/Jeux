@@ -21,7 +21,7 @@ trouvées = 0;
 affiché = "";
 for (var i = 0; i < longueur; i++) {affiché += "_ ";}
 
-function initialier() {
+function initialiser() {
 	wordDisplay.textContent = affiché.trim();
 	guessButton.addEventListener(
 		"click",
