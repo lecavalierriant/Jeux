@@ -22,11 +22,11 @@ affiché = "";
 for (var i = 0; i < longueur; i++) {affiché += "_ ";}
 
 function initialiser() {
-	wordDisplay.textContent = affiché.trim();
-	guessButton.addEventListener(
+	mot.textContent = affiché.trim();
+	button.addEventListener(
 		"click",
 		function() {
-			tentative = guessInput.value.toLowerCase();
+			tentative = input.value.toUpperCase();
 			if (tentative.length !== 1 || !tentative.match(/[a-z]/i)) {
 				message.textContent = "Veuillez entrer une lettre de l'alphabet.";
 			} else {
@@ -38,28 +38,28 @@ function initialiser() {
 						trouvée = true;
 						trouvées++;
 					} else {
-						nouveauAffiché += wordDisplay.textContent[i * 2] + " ";
+						nouveauAffiché += mot.textContent[i * 2] + " ";
 					}
 				}
-				wordDisplay.textContent = nouveauAffiché.trim();
-				guessInput.value = "";
-				guessInput.focus();
+				mot.textContent = nouveauAffiché.trim();
+				input.value = "";
+				input.focus();
 				if (trouvée) {
 					if (trouvées === longueur) {
 						message.textContent = "Félicitations ! Vous avez deviné le mot.";
-						guessInput.disabled = true;
-						guessButton.disabled = true;
+						input.disabled = true;
+						button.disabled = true;
 					} else {
 						message.textContent = "Bonne devinette !";
 					}
 				} else {
 					message.textContent = "Ce n'est pas une bonne lettre. Essayez encore !";
 					essaisRestants--;
-					hangmanStepsDisplay.textContent = étapes[6 - essaisRestants];
+					pre.textContent = étapes[6 - essaisRestants];
 					if (essaisRestants === 0) {
 						message.textContent = "Dommage, vous avez perdu. Le mot était : " + secret;
-						guessInput.disabled = true;
-						guessButton.disabled = true;
+						input.disabled = true;
+						button.disabled = true;
 					}
 				}
 			}
