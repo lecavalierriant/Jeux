@@ -6,28 +6,22 @@
 
 points = 0;
 coefficient = 1;
-document.addEventListener("keydown", touchePressee);
-document.addEventListener("keyup", toucheLiberee);
+document.addEventListener("keydown", pressée);
+document.addEventListener("keyup", relachée);
 droite = false;
 gauche = false;
 
-function touchePressee(evenement) {
-	if (evenement.key === "ArrowRight") {
-		droite = true;
-	} else if (evenement.key === "ArrowLeft") {
-		gauche = true;
-	}
+function pressée(événement) {
+	if (événement.key === "ArrowRight") {droite = true;} else
+	if (événement.key === "ArrowLeft") {droite = true;}
 }
 
-function toucheLiberee(evenement) {
-	if (evenement.key === "ArrowRight") {
-		droite = false;
-	} else if (evenement.key === "ArrowLeft") {
-		gauche = false;
-	}
+function relachée(événement) {
+	if (événement.key === "ArrowRight") {droite = false;} else
+	if (événement.key === "ArrowLeft") {gauche = false;}
 }
 
-function afficherJoueur() {
+function joueur() {
 	contexte.beginPath();
 	contexte.rect(joueur.x, joueur.y, joueur.width, joueur.height);
 	contexte.fillStyle = joueur.color;
@@ -35,7 +29,7 @@ function afficherJoueur() {
 	contexte.closePath();
 }
 
-function dessinerCible() {
+function cible() {
 	contexte.beginPath();
 	contexte.rect(cible.x, cible.y, cible.width, cible.height);
 	contexte.fillStyle = cible.color;
@@ -43,7 +37,7 @@ function dessinerCible() {
 	contexte.closePath();
 }
 
-function detecterCollisions() {
+function collisions() {
 	if (
 		joueur.x < cible.x + cible.width &&
 		joueur.x + joueur.width > cible.x &&
@@ -58,10 +52,10 @@ function detecterCollisions() {
 	}
 }
 
-function dessinerPoints() {
-	contexte.font = "100% georgia";
-	contexte.fillStyle = "#333333";
-	contexte.fillText("Score : " + points, 10, 20);
+function points() {
+	contexte.font = "100% garamond";
+	contexte.fillStyle = "#ffffff";
+	contexte.fillText("Points : " + points, 10, 20);
 }
 
 function rafraichir() {
@@ -72,10 +66,10 @@ function rafraichir() {
 		joueur.x -= 5;
 	}
 	cible.y += cible.speed;
-	afficherJoueur();
-	dessinerCible();
-	detecterCollisions();
-	dessinerPoints();
+	joueur();
+	cible();
+	collisions();
+	points();
 	requestAnimationFrame(rafraichir);
 }
 
@@ -86,14 +80,14 @@ function initialisation() {
 		y: canvas.height - 30,
 		width: 20,
 		height: 20,
-		color: "#213363"
+		color: "#009900"
 	};
 	cible = {
 		x: canvas.width / 2,
 		y: 0,
 		width: 30,
 		height: 30,
-		color: "#8eac50",
+		color: "#990000",
 		speed: 2
 	};
 	rafraichir();
