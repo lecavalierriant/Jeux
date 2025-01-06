@@ -26,7 +26,6 @@ cards.sort(() => Math.random() - 0.5);
 pairsFound = 0;
 
 function flipCard(card) {
-
 	if (card.flipped) {return;}
 	card.flipped = true;
 	card.element.classList.add("flip");
@@ -52,20 +51,21 @@ function flipCard(card) {
 			);
 		}
 	}
-
 }
 
-gameBoard = document.getElementById("gameBoard");
-cards.forEach(
-	function(card) {
-		cardElement = document.createElement("div");
-		cardElement.className = "card";
-		cardElement.setAttribute("data-value", card.value);
-		card.element = cardElement;
-		cardElement.addEventListener("click", function() {flipCard(card);});
-		gameBoard.appendChild(cardElement);
-	}
-);
+function initialiser() {
+	gameBoard = document.getElementById("gameBoard");
+	cards.forEach(
+		function(card) {
+			cardElement = document.createElement("div");
+			cardElement.className = "card";
+			cardElement.setAttribute("data-value", card.value);
+			card.element = cardElement;
+			cardElement.addEventListener("click", function() {flipCard(card);});
+			gameBoard.appendChild(cardElement);
+		}
+	);
+}
 
 // ================================================================================================================= //
 //                                                                                                                   //
