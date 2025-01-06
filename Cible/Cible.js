@@ -21,7 +21,7 @@ function relachée(événement) {
 	if (événement.key === "ArrowLeft") {gauche = false;}
 }
 
-function joueur() {
+function afficherJoueur() {
 	contexte.beginPath();
 	contexte.rect(joueur.x, joueur.y, joueur.width, joueur.height);
 	contexte.fillStyle = joueur.color;
@@ -29,7 +29,7 @@ function joueur() {
 	contexte.closePath();
 }
 
-function cible() {
+function afficherCible() {
 	contexte.beginPath();
 	contexte.rect(cible.x, cible.y, cible.width, cible.height);
 	contexte.fillStyle = cible.color;
@@ -52,7 +52,7 @@ function collisions() {
 	}
 }
 
-function points() {
+function afficherPoints() {
 	contexte.font = "100% garamond";
 	contexte.fillStyle = "#ffffff";
 	contexte.fillText("Points : " + points, 10, 20);
@@ -66,10 +66,10 @@ function rafraichir() {
 		joueur.x -= 5;
 	}
 	cible.y += cible.speed;
-	joueur();
-	cible();
+	afficherJoueur();
+	afficherCible();
 	collisions();
-	points();
+	afficherPoints();
 	requestAnimationFrame(rafraichir);
 }
 
