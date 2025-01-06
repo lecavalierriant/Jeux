@@ -13,7 +13,7 @@ gauche = false;
 
 function pressée(événement) {
 	if (événement.key === "ArrowRight") {droite = true;} else
-	if (événement.key === "ArrowLeft") {droite = true;}
+	if (événement.key === "ArrowLeft") {gauche = true;}
 }
 
 function relachée(événement) {
