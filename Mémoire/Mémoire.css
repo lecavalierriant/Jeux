@@ -4,7 +4,7 @@
 /*                                                                                                                   */
 /* ================================================================================================================= */
 
-.card {
+.carte {
 	width: 10%;
 	background-color: #17594A;
 	border-radius: 12.5%;
@@ -13,19 +13,19 @@
 	cursor: pointer;
 }
 
-.card:hover {
+.carte:hover {
 	width: 11%;
 	margin: 0.5%;
 }
 
-.card[data-value = A].flip {background-color: #ff0000;}
-.card[data-value = B].flip {background-color: #00ff00;}
-.card[data-value = C].flip {background-color: #0000ff;}
-.card[data-value = D].flip {background-color: #ffff00;}
-.card[data-value = E].flip {background-color: #ff00ff;}
-.card[data-value = F].flip {background-color: #00ffff;}
-.card[data-value = G].flip {background-color: #ff8000;}
-.card[data-value = H].flip {background-color: #008000;}
+.carte[data-value = A].flip {background-color: #ff0000;}
+.carte[data-value = B].flip {background-color: #00ff00;}
+.carte[data-value = C].flip {background-color: #0000ff;}
+.carte[data-value = D].flip {background-color: #ffff00;}
+.carte[data-value = E].flip {background-color: #ff00ff;}
+.carte[data-value = F].flip {background-color: #00ffff;}
+.carte[data-value = G].flip {background-color: #ff8000;}
+.carte[data-value = H].flip {background-color: #008000;}
 
 /* ================================================================================================================= */
 /*                                                                                                                   */
