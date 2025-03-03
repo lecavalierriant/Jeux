@@ -1,6 +1,6 @@
 **Jeux**
 
-*© 2024 — Le Cavalier Riant*
+*© 2025 — Le Cavalier Riant*
 
 Plusieurs jeux à jouer sur son navigateur.
 
