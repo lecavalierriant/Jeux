@@ -53,16 +53,10 @@ button:hover {
 	cursor: pointer;
 	margin-left: 5%;
 }
-button:active {
-	background-color: #667dd2;
-}
-#button-sélectionner, #button-valider {
-	font-size: 150%;
-}
+button:active {background-color: #667dd2;}
+#button-sélectionner, #button-valider {font-size: 150%;}
 
-.div-pile {
-	position: relative;
-}
+.div-pile {position: relative;}
 .div-haut {
 	position: absolute;
 	bottom: 25%;
@@ -74,39 +68,21 @@ button:active {
 	right: 50%;
 }
 
-table {
-	margin: auto;
-}
-#table-plateau {
-	width: 100%;
-}
-#table-exposition {
-	font-size: 200%;
-}
-#table-annonces {
-	width: 80%;
-}
+table {margin: auto;}
+#table-plateau {width: 100%;}
+#table-exposition {font-size: 200%;}
+#table-annonces {width: 80%;}
 #table-murs {
 	background: url("rdv.png") no-repeat center #008000;
 	background-size: 50%;
 }
 
-td {
-/*	border: 2px #000000 solid;*/
-}
-.td-main, #td-pioche-main {
-	font-size: 275%;
-}
-#td-pioche-main {
-	background-color: #0027b4;
-}
-.tr-encadrement td, .td-encadrement {
-	padding: 17px;
-}
+/*td {border: 2px #000000 solid;}*/
+.td-main, #td-pioche-main {font-size: 275%;}
+#td-pioche-main {background-color: #0027b4;}
+.tr-encadrement td, .td-encadrement {padding: 17px;}
 
-th {
-	font-size: 175%;
-}
+th {font-size: 175%;}
 
 /*	rose des vents*/
 
@@ -125,9 +101,7 @@ text {
 	alignment-baseline: middle;
 	fill: #ffffff;
 }
-line {
-	stroke-width: 1px;
-}
+line {stroke-width: 1px;}
 
 /*===================================================================================================================*/
 /*                                                                                                                   */
