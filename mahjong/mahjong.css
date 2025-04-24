@@ -30,7 +30,7 @@ body {
 	color: #ffffff;
 	text-shadow: 2px 2px 1px #000000;
 	font-size: 150%;
-	font-family: Bahnschrift;
+	font-family: bahnschrift;
 	user-select: none;
 
 }
@@ -38,7 +38,7 @@ body {
 button {
 	transition: 0.2s;
 	font-size: 100%;
-	font-family: Bahnschrift;
+	font-family: bahnschrift;
 	border: 2px #ffffff solid;
 	border-radius: 10px;
 	margin-top: 5%;
