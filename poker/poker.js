@@ -4,7 +4,6 @@
 //                                                                                                                   //
 // ================================================================================================================= //
 
-
 piques = ["🂡", "🂢", "🂣", "🂤", "🂥", "🂦", "🂧", "🂨", "🂩", "🂪", "🂫", "🂬", "🂭", "🂮"];
 coeurs = ["🂱", "🂲", "🂳", "🂴", "🂵", "🂶", "🂷", "🂸", "🂹", "🂺", "🂻", "🂼", "🂽", "🂾"];
 carreaux = ["🃁", "🃂", "🃃", "🃄", "🃅", "🃆", "🃇", "🃈", "🃉", "🃊", "🃋", "🃌", "🃍", "🃎"];
@@ -18,9 +17,7 @@ paquet = [];
 function initialiser() {nouveauPaquet();}
 
 class Carte {
-
 	constructor(force, famille) {
-
 		this.force = force;
 		this.famille = famille;
 		if (this.famille == "pique") {
@@ -32,11 +29,8 @@ class Carte {
 		} else if (this.famille == "trèfle") {
 			this.unicode = trefles[this.force - 1];
 		}
-
 	}
-
 	nom() {
-
 		if (this.force == 1) {
 			return "As de " + this.famille;
 		} else if (this.force == 11) {
@@ -48,15 +42,11 @@ class Carte {
 		} else {
 			return this.force + " de " + this.famille;
 		}
-
 	}
-
 }
 
 class CarteUnicode {
-
 	constructor(unicode) {
-
 		for (var i = 13 - 1; i >= 0; i--) {
 			if (unicode == piques[i]) {
 				this.famille = "pique";
@@ -85,20 +75,14 @@ class CarteUnicode {
 				return;
 			}
 		}
-
 	}
-
 	carte() {
-
 		carte = new Carte(this.force, this.famille);
 		return tuile;
-
 	}
-
 }
 
 function nouveauPaquet() {
-
 	paquetOrdre = [];
 	for (var i = 13; i >= 1; i--) {
 		carte = new Carte(i, "pique");
@@ -122,9 +106,7 @@ function nouveauPaquet() {
 		paquet.push(paquetOrdre[index]);
 		paquetOrdre.splice(index, 1);
 	}
-
 }
-
 
 // ================================================================================================================= //
 //                                                                                                                   //
